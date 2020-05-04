@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Blog  | JavaScript中的模块化编程</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.69.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.e08a958ae3e530145318b6373195c765.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+
+    <meta property="og:title" content="JavaScript中的模块化编程" />
+<meta property="og:description" content="CommonJS var $ = require(&#39;jquery&#39;); exports.myExample = function () {}; AMD  AMD module format是关于定义模块的一个提案，其中模块和依赖都可以异步加载，非常适合浏览器环境
+ RequireJS的说明
+define([&#39;jquery&#39;] , function ($) { return function () {}; }); ES2015(ES6) export export default 1 export default NaN export default &#39;foo&#39; export default { foo: &#39;bar&#39; } export default function foo () {} export { foo as default, bar } 重要的一点是，我们export的是变量的引用
+import 拿lodash作为例子，下面的表达式加载了lodash模块，会执行模块最顶层的代码块
+import {default, map} from &#39;lodash&#39; import {default as _, map} from &#39;lodash&#39; import _, {map} from &#39;lodash&#39; 差异 Imports work differently in CommonJS and ES6:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://1yzz.github.io/posts/my-first-post/" />
+<meta property="article:published_time" content="2020-04-30T14:46:44+08:00" />
+<meta property="article:modified_time" content="2020-04-30T14:46:44+08:00" />
+<meta itemprop="name" content="JavaScript中的模块化编程">
+<meta itemprop="description" content="CommonJS var $ = require(&#39;jquery&#39;); exports.myExample = function () {}; AMD  AMD module format是关于定义模块的一个提案，其中模块和依赖都可以异步加载，非常适合浏览器环境
+ RequireJS的说明
+define([&#39;jquery&#39;] , function ($) { return function () {}; }); ES2015(ES6) export export default 1 export default NaN export default &#39;foo&#39; export default { foo: &#39;bar&#39; } export default function foo () {} export { foo as default, bar } 重要的一点是，我们export的是变量的引用
+import 拿lodash作为例子，下面的表达式加载了lodash模块，会执行模块最顶层的代码块
+import {default, map} from &#39;lodash&#39; import {default as _, map} from &#39;lodash&#39; import _, {map} from &#39;lodash&#39; 差异 Imports work differently in CommonJS and ES6:">
+<meta itemprop="datePublished" content="2020-04-30T14:46:44&#43;08:00" />
+<meta itemprop="dateModified" content="2020-04-30T14:46:44&#43;08:00" />
+<meta itemprop="wordCount" content="104">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JavaScript中的模块化编程"/>
+<meta name="twitter:description" content="CommonJS var $ = require(&#39;jquery&#39;); exports.myExample = function () {}; AMD  AMD module format是关于定义模块的一个提案，其中模块和依赖都可以异步加载，非常适合浏览器环境
+ RequireJS的说明
+define([&#39;jquery&#39;] , function ($) { return function () {}; }); ES2015(ES6) export export default 1 export default NaN export default &#39;foo&#39; export default { foo: &#39;bar&#39; } export default function foo () {} export { foo as default, bar } 重要的一点是，我们export的是变量的引用
+import 拿lodash作为例子，下面的表达式加载了lodash模块，会执行模块最顶层的代码块
+import {default, map} from &#39;lodash&#39; import {default as _, map} from &#39;lodash&#39; import _, {map} from &#39;lodash&#39; 差异 Imports work differently in CommonJS and ES6:"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://1yzz.github.io/" class="f3 fw2 hover-white no-underline white-90 dib">
+      Blog
+    </a>
+    <div class="flex-l items-center">
+      
+      
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  <article class="flex-l flex-wrap justify-between mw8 center ph3 ph0-l">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">JavaScript中的模块化编程</h1>
+      
+      <time class="f6 mv4 dib tracked" datetime="2020-04-30T14:46:44&#43;08:00">April 30, 2020</time>
+    </header>
+
+    <main class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h3 id="commonjs">CommonJS</h3>
+<pre><code>var $ = require('jquery');
+exports.myExample = function () {};
+</code></pre><h3 id="amd">AMD</h3>
+<blockquote>
+<p>AMD module format是关于定义模块的一个提案，其中模块和依赖都可以异步加载，非常适合浏览器环境</p>
+</blockquote>
+<p><a href="https://requirejs.org/docs/whyamd.html">RequireJS</a>的说明</p>
+<pre><code>define(['jquery'] , function ($) {
+    return function () {};
+});
+</code></pre><h3 id="es2015es6">ES2015(ES6)</h3>
+<h4 id="export">export</h4>
+<pre><code>export default 1
+export default NaN
+export default 'foo'
+export default { foo: 'bar' }
+export default function foo () {}
+export { foo as default, bar }
+</code></pre><p>重要的一点是，我们<code>export</code>的是变量的引用</p>
+<h4 id="import">import</h4>
+<p>拿lodash作为例子，下面的表达式加载了lodash模块，会执行模块最顶层的代码块</p>
+<pre><code>import {default, map} from 'lodash'
+import {default as _, map} from 'lodash'
+import _, {map} from 'lodash'
+</code></pre><h3 id="差异">差异</h3>
+<p>Imports work differently in CommonJS and ES6:</p>
+<ul>
+<li>In CommonJS, imports are copies of exported values.</li>
+<li>In ES6, imports are live read-only views on exported values.</li>
+</ul>
+<h3 id="quote">Quote</h3>
+<ul>
+<li><a href="https://exploringjs.com/es6/ch_modules.html#sec_modules-in-javascript">https://exploringjs.com/es6/ch_modules.html#sec_modules-in-javascript</a></li>
+<li><a href="https://addyosmani.com/writing-modular-js/">https://addyosmani.com/writing-modular-js/</a></li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "1yzz" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </div>
+    </main>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-near-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://1yzz.github.io/" >
+    &copy; 2020 Blog
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
